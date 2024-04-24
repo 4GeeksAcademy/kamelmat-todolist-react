@@ -8,7 +8,7 @@ export const TodoList = () => {
         setInputValue(element.target.value)
     };
     const handleKeyDown = (event) => {
-        if (event.key === "Enter" && inputValue !=="") {
+        if (event.key === "Enter" && inputValue.trim() !=="") {
             setTodos(todos.concat(inputValue));
             setInputValue(""); 
         }
