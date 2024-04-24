@@ -1,3 +1,11 @@
 .font-control {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+.hidden-icon > span {
+    visibility: hidden;
+}
+
+.hidden-icon:hover > span {
+    visibility: visible;
+}

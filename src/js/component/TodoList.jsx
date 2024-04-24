@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-export const Todolist = () => {
+export const TodoList = () => {
     const [inputValue, setInputValue] = useState("");
     const [todos, setTodos] = useState([])
 
@@ -8,7 +8,7 @@ export const Todolist = () => {
         setInputValue(element.target.value)
     };
     const handleKeyDown = (event) => {
-        if (event.key === "Enter") {
+        if (event.key === "Enter" && inputValue !=="") {
             setTodos(todos.concat(inputValue));
             setInputValue(""); 
         }
@@ -18,12 +18,11 @@ export const Todolist = () => {
         setTodos(todos.filter((_, currentIndex) => index !== currentIndex));
     };
 
-
     return (
-        <div className="container d-flex justify-content-center align-items-center font-control">
+        <div className="container d-flex justify-content-center align-items-center font-control col-sm-10 col-md-8 col-lg-12">
             <div className="row">
                 <h1>My Todo List</h1>
-                <div className="col-12 col-md-8 col-lg-12">
+                <div className="">
                     <ul className="list-group">
                         <li className="list-group-item">
                             <input type="text" 
@@ -33,13 +32,16 @@ export const Todolist = () => {
                             placeholder="What do you need to do?"/>
                         </li>
                         {todos.map((item, index) => (
-                        <li className="list-group-item" key={index}>
-                            {item} <i className="fas fa-trash-alt" 
+                        <li className="list-group-item bg-light d-flex justify-content-between hidden-icon" key={index}>
+                            {item}
+                            <span>
+                            <i className="fas fa-trash-alt text-danger" 
                             onClick={() => handleDelete(index)}/><i/>
+                            </span>
                             </li>
                         ))}
                     </ul>
-                    <div className="text-start mt-3">{todos.length} Tasks Left</div>
+                    <div className="text-end mt-3 bg-light fs-6 fw-lighter">{todos.length} Tasks Left</div>
                 </div>
             </div>
 

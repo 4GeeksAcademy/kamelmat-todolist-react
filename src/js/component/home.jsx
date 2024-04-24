@@ -1,12 +1,12 @@
 import React from "react";
-import { Todolist } from "./Todolist";
+import { TodoList } from "./TodoList";
 
 
 //create your first component
 const Home = () => {
 	return (
 		<div className="text-center">
-		<Todolist />
+		<TodoList />
 		</div>
 	);
 };
